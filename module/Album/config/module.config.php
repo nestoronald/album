@@ -6,7 +6,7 @@ return array(
             'Album\Controller\Album' => 'Album\Controller\AlbumController',
         ),
     ),
-    // Sección nueva donde definimos las reglas de ruteo y el ruteado principal
+    
     'router' => array(
         'routes' => array(
             'album' => array(
