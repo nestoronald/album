@@ -128,7 +128,7 @@ class AlbumController extends AbstractActionController
     
             if ($form->isValid()) {
                 $suscribete->exchangeArray($form->getData());
-                $this->getSuscribeteTable()->saveAlbum($suscribete);
+                $this->getSuscribeteTable()->saveSuscribete($suscribete);
         
                 // Redirect to list of albums
                 return $this->redirect()->toRoute('album');
