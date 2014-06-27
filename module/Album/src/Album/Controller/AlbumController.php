@@ -6,7 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Album\Model\Album;          // <-- Add this import
 use Album\Form\AlbumForm;       // <-- Add this import
-
+use Album\Form\SuscribeteForm;
 
 class AlbumController extends AbstractActionController
 {
@@ -113,5 +113,26 @@ class AlbumController extends AbstractActionController
     }
     public function aboutAction(){
         
+    }
+    public function suscribeteAction()
+    {   
+        $form = new SuscribeteForm();
+        $form->get('submit')->setValue('Add');
+    
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $suscribete = new Suscribete();
+            $form->setInputFilter($suscribete->getInputFilter());
+            $form->setData($request->getPost());
+    
+            if ($form->isValid()) {
+                $suscribete->exchangeArray($form->getData());
+                $this->getSuscribeteTable()->saveAlbum($suscribete);
+        
+                // Redirect to list of albums
+                return $this->redirect()->toRoute('album');
+            }
+		}
+        return array('form' => $form);
     }
 }
