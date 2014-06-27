@@ -6,6 +6,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Album\Model\Album;          // <-- Add this import
 use Album\Form\AlbumForm;       // <-- Add this import
+use Album\Model\Suscribete;
 use Album\Form\SuscribeteForm;
 
 class AlbumController extends AbstractActionController
