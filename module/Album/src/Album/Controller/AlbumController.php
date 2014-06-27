@@ -112,6 +112,6 @@ class AlbumController extends AbstractActionController
         return $this->albumTable;
     }
     public function aboutAction(){
-        $this->view->mensaje = 'Primera version del proyecto album de musica';
+        
     }
 }
